@@ -18,7 +18,7 @@ namespace APPLIVE.API.Controllers
         }
         // Endpoint para obtener los canales filtrados por categoría, país y búsqueda
         [HttpGet("channels")]
-        public async Task<IActionResult> GetChannels([FromQuery] string category = "general", [FromQuery] string country = "PE")
+        public async Task<IActionResult> GetChannels([FromQuery] string category = "general", [FromQuery] string country = "")
         {
             var channels = await _iptvService.GetChannelsAsync(category, country);
             if (channels == null || !channels.Any())
